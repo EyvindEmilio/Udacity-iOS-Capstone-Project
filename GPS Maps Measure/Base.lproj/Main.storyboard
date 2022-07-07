@@ -19,6 +19,29 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Mwo-KP-OLA">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MeasureCell" textLabel="acK-qO-baJ" imageView="JE8-Nd-Fhh" style="IBUITableViewCellStyleDefault" id="rlW-Ix-EWz">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rlW-Ix-EWz" id="2uV-EY-WdO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="acK-qO-baJ">
+                                                    <rect key="frame" x="55.5" y="0.0" width="338.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="circle.fill" catalog="system" id="JE8-Nd-Fhh">
+                                                    <rect key="frame" x="20.25" y="12" width="20" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="9Hs-R8-FD3" id="Zq3-fo-Iaa"/>
                                     <outlet property="delegate" destination="9Hs-R8-FD3" id="qcG-rb-mcE"/>
@@ -221,14 +244,51 @@ Perimeter: 34 m</string>
                     <view key="view" contentMode="scaleToFill" id="rSq-Ju-YWe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsw-Yj-0wg">
+                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
+                                <connections>
+                                    <outlet property="delegate" destination="DXT-Ou-I83" id="jY9-hj-UiY"/>
+                                </connections>
+                            </mapView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Measure name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZT-Zy-kHZ">
+                                <rect key="frame" x="8" y="96" width="290" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YTE-nC-xlg">
+                                <rect key="frame" x="306" y="96" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Pom-da-kuA"/>
+                                </constraints>
+                                <state key="normal" title="Group"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vm0-mh-GbX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zsw-Yj-0wg" firstAttribute="top" secondItem="nZT-Zy-kHZ" secondAttribute="bottom" constant="8" id="9YA-BR-IK9"/>
+                            <constraint firstItem="nZT-Zy-kHZ" firstAttribute="trailing" secondItem="YTE-nC-xlg" secondAttribute="leading" constant="-8" id="Rre-gz-7BA"/>
+                            <constraint firstItem="vm0-mh-GbX" firstAttribute="trailing" secondItem="YTE-nC-xlg" secondAttribute="trailing" constant="8" id="UGi-vE-9Md"/>
+                            <constraint firstItem="Zsw-Yj-0wg" firstAttribute="leading" secondItem="vm0-mh-GbX" secondAttribute="leading" id="VCd-xj-hlx"/>
+                            <constraint firstItem="YTE-nC-xlg" firstAttribute="top" secondItem="vm0-mh-GbX" secondAttribute="top" constant="8" id="cG1-wh-PKC"/>
+                            <constraint firstItem="vm0-mh-GbX" firstAttribute="trailing" secondItem="Zsw-Yj-0wg" secondAttribute="trailing" id="cxh-Cg-sze"/>
+                            <constraint firstItem="YTE-nC-xlg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vm0-mh-GbX" secondAttribute="leading" symbolic="YES" id="gxf-Vb-4hH"/>
+                            <constraint firstItem="nZT-Zy-kHZ" firstAttribute="top" secondItem="vm0-mh-GbX" secondAttribute="top" constant="8" id="mBB-xG-tMD"/>
+                            <constraint firstItem="vm0-mh-GbX" firstAttribute="bottom" secondItem="Zsw-Yj-0wg" secondAttribute="bottom" id="t1t-mm-An9"/>
+                            <constraint firstItem="nZT-Zy-kHZ" firstAttribute="leading" secondItem="vm0-mh-GbX" secondAttribute="leading" constant="8" id="tM0-iV-VyX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oLi-GP-OKp"/>
+                    <connections>
+                        <outlet property="btnGroups" destination="YTE-nC-xlg" id="v9H-xV-AtB"/>
+                        <outlet property="mapView" destination="Zsw-Yj-0wg" id="d87-sC-5Td"/>
+                        <outlet property="tfMeasureName" destination="nZT-Zy-kHZ" id="Jfe-v0-N0S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UsH-5A-Ewl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1306" y="-184"/>
+            <point key="canvasLocation" x="1305.7971014492755" y="-184.15178571428569"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XDe-zr-u4c">
@@ -359,7 +419,7 @@ Perimeter: 34 m</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zdz-r6-uZP"/>
+        <segue reference="hD5-Vy-XyF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="121"/>

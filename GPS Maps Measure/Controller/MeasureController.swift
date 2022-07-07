@@ -67,7 +67,7 @@ class MeasureController: BaseMeasureMapController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let measure = fetchedResultsController.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MeaureCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MeasureCell", for: indexPath)
         cell.textLabel?.text = measure.name
         
         return cell
