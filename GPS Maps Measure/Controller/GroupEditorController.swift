@@ -37,9 +37,10 @@ class GroupEditorController: UIViewController, UIColorPickerViewControllerDelega
         tapGesture.numberOfTapsRequired = 1
         ivSelectColor.isUserInteractionEnabled = true
         ivSelectColor.addGestureRecognizer(tapGesture)
-        ivSelectColor.backgroundColor = UIColor.blue
         
-        if !isNewGroup() {
+        if isNewGroup() {
+            populateDefault()
+        } else {
             populateGroup()
         }
     }
@@ -80,7 +81,12 @@ class GroupEditorController: UIViewController, UIColorPickerViewControllerDelega
         self.dismiss(animated: true)
     }
     
-    private func populateGroup(){
+    private func populateDefault() {
+        ivSelectColor.backgroundColor = UIColor.blue
+        tfGroupName.text = ""
+    }
+    
+    private func populateGroup() {
         ivSelectColor.backgroundColor = group!.color.uiColor()
         tfGroupName.text = group?.name
     }

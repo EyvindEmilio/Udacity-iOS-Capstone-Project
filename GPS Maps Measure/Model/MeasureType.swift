@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MeasureType {
+enum MeasureType: String {
     case AREA
     case DISTANCE
     case CIRCLE

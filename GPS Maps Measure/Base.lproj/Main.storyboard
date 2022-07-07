@@ -19,19 +19,42 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Mwo-KP-OLA">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Hs-R8-FD3" id="Zq3-fo-Iaa"/>
+                                    <outlet property="delegate" destination="9Hs-R8-FD3" id="qcG-rb-mcE"/>
+                                </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No measurements found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRN-cU-uCM">
+                                <rect key="frame" x="99.5" y="438.5" width="215.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qHW-Lc-TbV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Mwo-KP-OLA" firstAttribute="leading" secondItem="qHW-Lc-TbV" secondAttribute="leading" id="3h6-0y-3K8"/>
+                            <constraint firstItem="bRN-cU-uCM" firstAttribute="centerY" secondItem="qHW-Lc-TbV" secondAttribute="centerY" id="7uH-z7-u3o"/>
+                            <constraint firstItem="bRN-cU-uCM" firstAttribute="centerX" secondItem="qHW-Lc-TbV" secondAttribute="centerX" id="Dh9-x5-LUN"/>
                             <constraint firstItem="qHW-Lc-TbV" firstAttribute="trailing" secondItem="Mwo-KP-OLA" secondAttribute="trailing" id="Jaq-T3-N18"/>
                             <constraint firstItem="Mwo-KP-OLA" firstAttribute="top" secondItem="qHW-Lc-TbV" secondAttribute="top" id="oFy-PL-JOB"/>
                             <constraint firstItem="qHW-Lc-TbV" firstAttribute="bottom" secondItem="Mwo-KP-OLA" secondAttribute="bottom" id="zbq-Ed-0XB"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Measures" image="list.bullet" catalog="system" id="E7p-G7-eXh"/>
-                    <navigationItem key="navigationItem" title="Measure" id="PFh-Hx-czw"/>
+                    <navigationItem key="navigationItem" title="Measure" id="PFh-Hx-czw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="x9C-0F-rKx">
+                            <connections>
+                                <action selector="newMeasure:" destination="9Hs-R8-FD3" id="bEB-ed-VX4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Mwo-KP-OLA" id="lSr-OX-F4S"/>
+                        <outlet property="tvNoItemsFound" destination="bRN-cU-uCM" id="tAH-vS-UJe"/>
+                        <segue destination="DXT-Ou-I83" kind="show" identifier="FromMeasuresSegueToEditor" id="hD5-Vy-XyF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mtd-2Z-0Vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,27 +156,41 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2dm-CH-Mi2">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8C-0S-lKD">
-                                <rect key="frame" x="126" y="772" width="162" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" title="Add New Measure"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqL-yN-7KY">
+                                <rect key="frame" x="0.0" y="752" width="414" height="61"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <string key="text">Measure 1
+Area: 34 m2
+Perimeter: 34 m</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PtO-Ya-czI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2dm-CH-Mi2" firstAttribute="leading" secondItem="PtO-Ya-czI" secondAttribute="leading" id="EUx-nG-35F"/>
-                            <constraint firstItem="Y8C-0S-lKD" firstAttribute="centerX" secondItem="PtO-Ya-czI" secondAttribute="centerX" id="EWE-fi-ymj"/>
                             <constraint firstItem="PtO-Ya-czI" firstAttribute="trailing" secondItem="2dm-CH-Mi2" secondAttribute="trailing" id="OrR-DA-YIa"/>
-                            <constraint firstItem="PtO-Ya-czI" firstAttribute="bottom" secondItem="Y8C-0S-lKD" secondAttribute="bottom" constant="10" id="pnc-aQ-Q50"/>
+                            <constraint firstItem="gqL-yN-7KY" firstAttribute="leading" secondItem="PtO-Ya-czI" secondAttribute="leading" id="XLU-wH-TQ9"/>
+                            <constraint firstItem="PtO-Ya-czI" firstAttribute="trailing" secondItem="gqL-yN-7KY" secondAttribute="trailing" id="fJ4-qH-jNY"/>
+                            <constraint firstItem="PtO-Ya-czI" firstAttribute="bottom" secondItem="gqL-yN-7KY" secondAttribute="bottom" id="hIt-TQ-ZDg"/>
                             <constraint firstItem="2dm-CH-Mi2" firstAttribute="top" secondItem="PtO-Ya-czI" secondAttribute="top" id="wUN-83-2We"/>
                             <constraint firstItem="PtO-Ya-czI" firstAttribute="bottom" secondItem="2dm-CH-Mi2" secondAttribute="bottom" id="wx4-o1-yuQ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="05E-nX-HuD"/>
                     <navigationItem key="navigationItem" title="Map" id="YyJ-Cr-3aW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fGX-C4-Cdm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fGX-C4-Cdm">
+                            <connections>
+                                <action selector="newMeasure:" destination="ob5-aD-six" id="vGZ-xh-wch"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tvMeasureInfo" destination="gqL-yN-7KY" id="McW-or-vMi"/>
+                        <segue destination="DXT-Ou-I83" kind="show" identifier="FromMapSegueToEditor" id="Zdz-r6-uZP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGG-Rs-N4G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,6 +224,7 @@
                         <viewLayoutGuide key="safeArea" id="vm0-mh-GbX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="oLi-GP-OKp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UsH-5A-Ewl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -284,12 +322,20 @@
                                     <outlet property="delegate" destination="2Sv-DP-LfE" id="UPB-3g-91K"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No groups found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1G-7Q-Npk">
+                                <rect key="frame" x="133.5" y="438.5" width="147" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="STi-uk-3SL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Q1G-7Q-Npk" firstAttribute="centerY" secondItem="STi-uk-3SL" secondAttribute="centerY" id="1tZ-6f-5rV"/>
                             <constraint firstItem="STi-uk-3SL" firstAttribute="bottom" secondItem="wAR-P4-kTL" secondAttribute="bottom" id="5UX-Fy-Izi"/>
                             <constraint firstItem="wAR-P4-kTL" firstAttribute="top" secondItem="STi-uk-3SL" secondAttribute="top" id="6r8-Gn-klp"/>
+                            <constraint firstItem="Q1G-7Q-Npk" firstAttribute="centerX" secondItem="STi-uk-3SL" secondAttribute="centerX" id="dUf-0Q-fEx"/>
                             <constraint firstItem="wAR-P4-kTL" firstAttribute="leading" secondItem="STi-uk-3SL" secondAttribute="leading" id="jG6-kR-OFc"/>
                             <constraint firstItem="STi-uk-3SL" firstAttribute="trailing" secondItem="wAR-P4-kTL" secondAttribute="trailing" id="jwP-vq-Znk"/>
                         </constraints>
@@ -304,6 +350,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="wAR-P4-kTL" id="Pi3-tR-GTQ"/>
+                        <outlet property="tvNoItemsFound" destination="Q1G-7Q-Npk" id="4r9-Lq-XJW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9Z-V1-4GP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -311,6 +358,9 @@
             <point key="canvasLocation" x="396" y="838"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Zdz-r6-uZP"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>

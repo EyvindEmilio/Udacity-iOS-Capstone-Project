@@ -35,4 +35,27 @@ extension Measure{
     func setPointsList(points: [PointLocation]){
         self.simplePoints = points.map { point in "\(point.latitude),\(point.longitude)" }.joined(separator: "|")
     }
+    
+    func getMeasureType() -> MeasureType? {
+        var measureType: MeasureType? = nil
+        switch self.type {
+        case MeasureType.AREA.rawValue:
+            measureType = MeasureType.AREA
+            break
+        case MeasureType.DISTANCE.rawValue:
+            measureType = MeasureType.DISTANCE
+            break
+        case MeasureType.CIRCLE.rawValue:
+            measureType = MeasureType.CIRCLE
+            break
+        case MeasureType.POI.rawValue:
+            measureType = MeasureType.POI
+            break
+        case .none:
+            measureType = nil
+        case .some(_):
+            measureType = nil
+        }
+        return measureType
+    }
 }

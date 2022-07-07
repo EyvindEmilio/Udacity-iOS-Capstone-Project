@@ -17,12 +17,13 @@ class GroupController: UIViewController, UITableViewDataSource, UITableViewDeleg
     private var fetchedResultsController: NSFetchedResultsController<Group>!
     
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var tvNoItemsFound: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         DDLogVerbose("viewDidLoad()")
-        
         setupFetchedResultsController()
+        handleEmptyView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +49,10 @@ class GroupController: UIViewController, UITableViewDataSource, UITableViewDeleg
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
     }
-    
+
+    func handleEmptyView() {
+        tvNoItemsFound.isHidden = fetchedResultsController.fetchedObjects?.count != 0
+    }
     
     func deleteGroup(at indexPath: IndexPath) {
         let groupToDelete = fetchedResultsController.object(at: indexPath)
@@ -126,8 +130,8 @@ extension GroupController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
         tableView.reloadData()
+        handleEmptyView()
     }
-    
 }
 
 

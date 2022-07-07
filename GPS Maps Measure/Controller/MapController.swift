@@ -9,18 +9,18 @@ import Foundation
 import UIKit
 import CocoaLumberjackSwift
 
-class MapController: UIViewController {
+class MapController: BaseMeasureMapController {
     
+    @IBOutlet weak var tvMeasureInfo: UILabel!
     
-    
+    let dataController = (UIApplication.shared.delegate as! AppDelegate).dataController
+
     override func viewDidLoad() {
-        debugPrint("viewDidLoad")
         DDLogVerbose("viewDidLoad")
-        
-        let dataController = (UIApplication.shared.delegate as! AppDelegate).dataController
-        
-        DDLogVerbose(dataController.viewContext)
-        
-        
     }
+    
+    @IBAction func newMeasure(_ sender: Any) {
+        performMeasureSegue(withIdentifier: MeasureEditorController.FROM_MAP_SEGUE_ID, sender: nil)
+    }
+    
 }

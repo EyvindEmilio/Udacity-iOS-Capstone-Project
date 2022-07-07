@@ -20,6 +20,7 @@
 		81D172BC28767FCF004C6F7B /* GroupEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172BB28767FCF004C6F7B /* GroupEditorController.swift */; };
 		81D172BE2876AA25004C6F7B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172BD2876AA25004C6F7B /* DataController.swift */; };
 		81D172C32876B456004C6F7B /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172C22876B456004C6F7B /* GlobalExtensions.swift */; };
+		81D172C52876D8C2004C6F7B /* BaseMeasureMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172C42876D8C2004C6F7B /* BaseMeasureMapController.swift */; };
 		81FD51092870AC1300E5FD48 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51082870AC1300E5FD48 /* GroupController.swift */; };
 		81FD510B2870AC1E00E5FD48 /* MeasureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD510A2870AC1E00E5FD48 /* MeasureController.swift */; };
 		81FD510E2870AC5900E5FD48 /* GpsMaps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81FD510C2870AC5900E5FD48 /* GpsMaps.xcdatamodeld */; };
@@ -46,6 +47,7 @@
 		81D172BB28767FCF004C6F7B /* GroupEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEditorController.swift; sourceTree = "<group>"; };
 		81D172BD2876AA25004C6F7B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		81D172C22876B456004C6F7B /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
+		81D172C42876D8C2004C6F7B /* BaseMeasureMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMeasureMapController.swift; sourceTree = "<group>"; };
 		81FD51082870AC1300E5FD48 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
 		81FD510A2870AC1E00E5FD48 /* MeasureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureController.swift; sourceTree = "<group>"; };
 		81FD510D2870AC5900E5FD48 /* GpsMaps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GpsMaps.xcdatamodel; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				81112FFB286A6C1A006799DE /* ViewController.swift */,
+				81D172C42876D8C2004C6F7B /* BaseMeasureMapController.swift */,
 				8111300E286AB4CB006799DE /* MapController.swift */,
 				81FD510A2870AC1E00E5FD48 /* MeasureController.swift */,
 				81D172B928767F67004C6F7B /* MeasureEditorController.swift */,
@@ -236,6 +239,7 @@
 				81D172BA28767F67004C6F7B /* MeasureEditorController.swift in Sources */,
 				81112FFA286A6C1A006799DE /* SceneDelegate.swift in Sources */,
 				81FD51092870AC1300E5FD48 /* GroupController.swift in Sources */,
+				81D172C52876D8C2004C6F7B /* BaseMeasureMapController.swift in Sources */,
 				81D172C32876B456004C6F7B /* GlobalExtensions.swift in Sources */,
 				81D172BC28767FCF004C6F7B /* GroupEditorController.swift in Sources */,
 				81D172BE2876AA25004C6F7B /* DataController.swift in Sources */,
