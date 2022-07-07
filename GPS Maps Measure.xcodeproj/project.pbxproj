@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,22 @@
 		81112FFF286A6C1A006799DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81112FFD286A6C1A006799DE /* Main.storyboard */; };
 		81113001286A6C1B006799DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81113000286A6C1B006799DE /* Assets.xcassets */; };
 		81113004286A6C1B006799DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81113002286A6C1B006799DE /* LaunchScreen.storyboard */; };
+		8111300D286AB4AD006799DE /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8111300C286AB4AD006799DE /* CocoaLumberjackSwift */; };
+		8111300F286AB4CB006799DE /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111300E286AB4CB006799DE /* MapController.swift */; };
+		8170C340286AC11600E3A316 /* CustomLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8170C33F286AC11600E3A316 /* CustomLogFormatter.swift */; };
+		81D172BA28767F67004C6F7B /* MeasureEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172B928767F67004C6F7B /* MeasureEditorController.swift */; };
+		81D172BC28767FCF004C6F7B /* GroupEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172BB28767FCF004C6F7B /* GroupEditorController.swift */; };
+		81D172BE2876AA25004C6F7B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172BD2876AA25004C6F7B /* DataController.swift */; };
+		81D172C32876B456004C6F7B /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172C22876B456004C6F7B /* GlobalExtensions.swift */; };
+		81FD51092870AC1300E5FD48 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51082870AC1300E5FD48 /* GroupController.swift */; };
+		81FD510B2870AC1E00E5FD48 /* MeasureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD510A2870AC1E00E5FD48 /* MeasureController.swift */; };
+		81FD510E2870AC5900E5FD48 /* GpsMaps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81FD510C2870AC5900E5FD48 /* GpsMaps.xcdatamodeld */; };
+		81FD51102870B0CE00E5FD48 /* Measure+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD510F2870B0CE00E5FD48 /* Measure+Extensions.swift */; };
+		81FD51142870B22E00E5FD48 /* MeasureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51132870B22E00E5FD48 /* MeasureType.swift */; };
+		81FD51162870B88000E5FD48 /* JsonPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51152870B88000E5FD48 /* JsonPoint.swift */; };
+		81FD51182870D78A00E5FD48 /* PointLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51172870D78A00E5FD48 /* PointLocation.swift */; };
+		81FD511A2870DD3700E5FD48 /* LatLngBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51192870DD3700E5FD48 /* LatLngBounds.swift */; };
+		81FD511D2870E16000E5FD48 /* GoogleMapsUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 81FD511C2870E16000E5FD48 /* GoogleMapsUtils */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +40,20 @@
 		81113000286A6C1B006799DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81113003286A6C1B006799DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81113005286A6C1B006799DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8111300E286AB4CB006799DE /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		8170C33F286AC11600E3A316 /* CustomLogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLogFormatter.swift; sourceTree = "<group>"; };
+		81D172B928767F67004C6F7B /* MeasureEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureEditorController.swift; sourceTree = "<group>"; };
+		81D172BB28767FCF004C6F7B /* GroupEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEditorController.swift; sourceTree = "<group>"; };
+		81D172BD2876AA25004C6F7B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		81D172C22876B456004C6F7B /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
+		81FD51082870AC1300E5FD48 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
+		81FD510A2870AC1E00E5FD48 /* MeasureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureController.swift; sourceTree = "<group>"; };
+		81FD510D2870AC5900E5FD48 /* GpsMaps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GpsMaps.xcdatamodel; sourceTree = "<group>"; };
+		81FD510F2870B0CE00E5FD48 /* Measure+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Measure+Extensions.swift"; sourceTree = "<group>"; };
+		81FD51132870B22E00E5FD48 /* MeasureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureType.swift; sourceTree = "<group>"; };
+		81FD51152870B88000E5FD48 /* JsonPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPoint.swift; sourceTree = "<group>"; };
+		81FD51172870D78A00E5FD48 /* PointLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointLocation.swift; sourceTree = "<group>"; };
+		81FD51192870DD3700E5FD48 /* LatLngBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLngBounds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FD511D2870E16000E5FD48 /* GoogleMapsUtils in Frameworks */,
+				8111300D286AB4AD006799DE /* CocoaLumberjackSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +88,61 @@
 		81112FF6286A6C1A006799DE /* GPS Maps Measure */ = {
 			isa = PBXGroup;
 			children = (
+				81D172C12876B444004C6F7B /* Instrumentation */,
+				81FD51072870AC0000E5FD48 /* View */,
+				81FD51062870ABF600E5FD48 /* Model */,
+				81FD51052870ABEE00E5FD48 /* Controller */,
 				81112FF7286A6C1A006799DE /* AppDelegate.swift */,
 				81112FF9286A6C1A006799DE /* SceneDelegate.swift */,
-				81112FFB286A6C1A006799DE /* ViewController.swift */,
 				81112FFD286A6C1A006799DE /* Main.storyboard */,
 				81113000286A6C1B006799DE /* Assets.xcassets */,
 				81113002286A6C1B006799DE /* LaunchScreen.storyboard */,
 				81113005286A6C1B006799DE /* Info.plist */,
+				8170C33F286AC11600E3A316 /* CustomLogFormatter.swift */,
 			);
 			path = "GPS Maps Measure";
+			sourceTree = "<group>";
+		};
+		81D172C12876B444004C6F7B /* Instrumentation */ = {
+			isa = PBXGroup;
+			children = (
+				81D172C22876B456004C6F7B /* GlobalExtensions.swift */,
+			);
+			path = Instrumentation;
+			sourceTree = "<group>";
+		};
+		81FD51052870ABEE00E5FD48 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				81112FFB286A6C1A006799DE /* ViewController.swift */,
+				8111300E286AB4CB006799DE /* MapController.swift */,
+				81FD510A2870AC1E00E5FD48 /* MeasureController.swift */,
+				81D172B928767F67004C6F7B /* MeasureEditorController.swift */,
+				81FD51082870AC1300E5FD48 /* GroupController.swift */,
+				81D172BB28767FCF004C6F7B /* GroupEditorController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		81FD51062870ABF600E5FD48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				81FD510C2870AC5900E5FD48 /* GpsMaps.xcdatamodeld */,
+				81FD510F2870B0CE00E5FD48 /* Measure+Extensions.swift */,
+				81FD51132870B22E00E5FD48 /* MeasureType.swift */,
+				81FD51152870B88000E5FD48 /* JsonPoint.swift */,
+				81FD51172870D78A00E5FD48 /* PointLocation.swift */,
+				81FD51192870DD3700E5FD48 /* LatLngBounds.swift */,
+				81D172BD2876AA25004C6F7B /* DataController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		81FD51072870AC0000E5FD48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +161,10 @@
 			dependencies = (
 			);
 			name = "GPS Maps Measure";
+			packageProductDependencies = (
+				8111300C286AB4AD006799DE /* CocoaLumberjackSwift */,
+				81FD511C2870E16000E5FD48 /* GoogleMapsUtils */,
+			);
 			productName = "GPS Maps Measure";
 			productReference = 81112FF4286A6C1A006799DE /* GPS Maps Measure.app */;
 			productType = "com.apple.product-type.application";
@@ -103,7 +185,7 @@
 				};
 			};
 			buildConfigurationList = 81112FEF286A6C1A006799DE /* Build configuration list for PBXProject "GPS Maps Measure" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -111,6 +193,10 @@
 				Base,
 			);
 			mainGroup = 81112FEB286A6C1A006799DE;
+			packageReferences = (
+				8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+				81FD511B2870E16000E5FD48 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */,
+			);
 			productRefGroup = 81112FF5286A6C1A006799DE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +224,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8111300F286AB4CB006799DE /* MapController.swift in Sources */,
+				81FD51182870D78A00E5FD48 /* PointLocation.swift in Sources */,
+				81FD51162870B88000E5FD48 /* JsonPoint.swift in Sources */,
 				81112FFC286A6C1A006799DE /* ViewController.swift in Sources */,
+				81FD511A2870DD3700E5FD48 /* LatLngBounds.swift in Sources */,
 				81112FF8286A6C1A006799DE /* AppDelegate.swift in Sources */,
+				81FD51102870B0CE00E5FD48 /* Measure+Extensions.swift in Sources */,
+				81FD510B2870AC1E00E5FD48 /* MeasureController.swift in Sources */,
+				8170C340286AC11600E3A316 /* CustomLogFormatter.swift in Sources */,
+				81D172BA28767F67004C6F7B /* MeasureEditorController.swift in Sources */,
 				81112FFA286A6C1A006799DE /* SceneDelegate.swift in Sources */,
+				81FD51092870AC1300E5FD48 /* GroupController.swift in Sources */,
+				81D172C32876B456004C6F7B /* GlobalExtensions.swift in Sources */,
+				81D172BC28767FCF004C6F7B /* GroupEditorController.swift in Sources */,
+				81D172BE2876AA25004C6F7B /* DataController.swift in Sources */,
+				81FD51142870B22E00E5FD48 /* MeasureType.swift in Sources */,
+				81FD510E2870AC5900E5FD48 /* GpsMaps.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,14 +392,15 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.onedayofcode.GPS-Maps-Measure";
+				MARKETING_VERSION = 0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onedayofcode.maps-measure";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -319,14 +420,15 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.onedayofcode.GPS-Maps-Measure";
+				MARKETING_VERSION = 0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onedayofcode.maps-measure";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -356,6 +458,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.7.4;
+			};
+		};
+		81FD511B2870E16000E5FD48 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googlemaps/google-maps-ios-utils.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8111300C286AB4AD006799DE /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
+		};
+		81FD511C2870E16000E5FD48 /* GoogleMapsUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81FD511B2870E16000E5FD48 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */;
+			productName = GoogleMapsUtils;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		81FD510C2870AC5900E5FD48 /* GpsMaps.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				81FD510D2870AC5900E5FD48 /* GpsMaps.xcdatamodel */,
+			);
+			currentVersion = 81FD510D2870AC5900E5FD48 /* GpsMaps.xcdatamodel */;
+			path = GpsMaps.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 81112FEC286A6C1A006799DE /* Project object */;
 }

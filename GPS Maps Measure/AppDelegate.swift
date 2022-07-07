@@ -6,14 +6,25 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    let fileLogger: DDFileLogger = DDFileLogger()
+    let dataController = DataController(modelName: "GpsMaps")
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        DDOSLogger.sharedInstance.logFormatter = CustomLogFormatter()
+        DDLog.add(DDOSLogger.sharedInstance)
+        DDLogVerbose("Initial log setup")
+    
+        fileLogger.rollingFrequency = 60 * 60 * 24 // 24 hours
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
+    
+        DDLog.add(fileLogger)
+
+        dataController.load()
+        
         return true
     }
 
