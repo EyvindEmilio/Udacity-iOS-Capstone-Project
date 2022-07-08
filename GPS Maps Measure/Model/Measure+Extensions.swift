@@ -7,6 +7,9 @@
 
 import Foundation
 import CoreData
+import MapKit
+import CocoaLumberjackSwift
+import Turf
 
 extension Measure {
 
@@ -91,16 +94,13 @@ extension Measure {
         
         switch getMeasureType() {
         case .AREA:
-            area = 1.0
-            perimeter = 1.0
+            regenerateForArea()
             break
         case .DISTANCE:
-            distance = 1.0
+            regenerateForDistance()
             break
         case .CIRCLE:
-            area = 1.0
-            perimeter = 1.0
-            radio = 1.0
+            regenerateForCircle()
             break
         case .POI:
             break
@@ -109,6 +109,89 @@ extension Measure {
         }
     }
     
+    private func regenerateForCircle() {
+        let points = getLayLngPoints()
+        if points.count >= 2 {
+            // Radio
+            let centerLocation = CLLocation(latitude: points[0].latitude, longitude: points[0].longitude)
+            let secondPointLocation = CLLocation(latitude: points[1].latitude, longitude: points[1].longitude)
+            let locationDistance = centerLocation.distance(from: secondPointLocation)
+            radio = locationDistance
+            
+            // Area
+            // Disabled temporally
+            let ring = Turf.Ring(coordinates: points.map({ point in
+                LocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
+            }))
+            // Using basic algorithm, needs to use earth circunference for big circles
+            area = Double.pi * radio * radio
+
+            perimeter = 2 * Double.pi * radio
+        } else {
+            area = 0.0
+            perimeter = 0.0
+            radio = 0.0
+        }
+    }
+    
+    private func regenerateForDistance() {
+        let points = getLayLngPoints()
+        if points.count >= 2 {
+            var _distance = 0.0
+            
+            var oldLocation = CLLocation(latitude: points[0].latitude, longitude: points[0].longitude)
+            
+            for i in points.indices {
+                let nextLocation = CLLocation(latitude: points[i].latitude, longitude: points[i].longitude)
+                _distance += oldLocation.distance(from: nextLocation)
+                oldLocation = nextLocation
+            }
+            distance = _distance
+        } else {
+            distance = 0.0
+        }
+    }
+    
+    private func regenerateForArea() {
+        let points = getLayLngPoints()
+        if points.count >= 3 {
+            var _perimeter = 0.0
+            
+            // Perimeter
+            var newPoints = points
+            newPoints.append(points.first!)
+            
+            var oldLocation = CLLocation(latitude: points[0].latitude, longitude: points[0].longitude)
+            
+            for i in newPoints.indices {
+                let nextLocation = CLLocation(latitude: newPoints[i].latitude, longitude: newPoints[i].longitude)
+                _perimeter += oldLocation.distance(from: nextLocation)
+                oldLocation = nextLocation
+            }
+            
+            //area
+            let pol = Turf.Polygon([points.map({ point in
+                LocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
+            })])
+            self.area = pol.area
+            perimeter = _perimeter
+            
+        } else {
+            area = 0.0
+            perimeter = 0.0
+        }
+    }
+    
+//    func area(){
+//        let points = getLayLngPoints()
+//        let pol = Turf.Polygon([points.map({ point in
+//            LocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
+//        })])
+//
+//        pol.area
+//    }
+    
+    
     func getDescription() -> String {
         var mDescription = ""
         switch getMeasureType() {
@@ -116,7 +199,7 @@ extension Measure {
             mDescription = "Area: \(roundValue(area)) [m²]\nPerimeter: \(roundValue(perimeter)) [m]"
             break
         case .DISTANCE:
-            mDescription = "Distance: \(roundValue(perimeter)) [m]"
+            mDescription = "Distance: \(roundValue(distance)) [m]"
             break
         case .CIRCLE:
             mDescription = "Area: \(roundValue(area)) [m²]\nRadio: \(roundValue(radio)) [m]\nCircumference: \(roundValue(perimeter)) [m]"

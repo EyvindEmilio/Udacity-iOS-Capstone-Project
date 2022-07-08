@@ -52,7 +52,8 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
         mapView.addGestureRecognizer(gestureRecognizer)
         
         setupFetchedGroupsController()
-        
+        tvMeasureInfo.text = ""
+
         if isNew() {
             populateGroups()
         } else {
@@ -96,6 +97,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        dataController.viewContext.rollback()
     }
     
     fileprivate func setupFetchedGroupsController() {
@@ -356,9 +358,13 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
                 let circle = MKCircle(center: center, radius: centerLocation.distance(from: secondPointLocation))
                 mapView.removeOverlays(mapView.overlays)
                 mapView.addOverlay(circle)
+            } else {
+                mapView.removeOverlays(mapView.overlays)
             }
             break
-        case .POI: break
+        case .POI:
+            // Not needed, it's an annotation
+            break
         case .none: break
         }
     }
@@ -369,8 +375,10 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
     }
     
     private func redrawDetail() {
-        measure?.setPointsList(points: list.toPointLocation())
-        measure?.regenerateCalcs()
-        tvMeasureInfo.text = measure?.getDescription()
+        let tempMeasure = Measure.newInstance(context: dataController.viewContext, name: "", group: groupSelected!, type: measureType, points: list.toPointLocation())
+        
+        tempMeasure.regenerateCalcs()
+        tvMeasureInfo.text = tempMeasure.getDescription()
+        dataController.viewContext.rollback() // To prevent save the temporal measure
     }
 }

@@ -175,6 +175,9 @@ class MapController: BaseMeasureMapController, MKMapViewDelegate {
         
         switch measure.getMeasureType() {
         case .CIRCLE:
+            if points.count < 2 {
+                return
+            }
             let center = CLLocationCoordinate2D(latitude: points[0].latitude, longitude: points[0].longitude)
             let secondPoint = CLLocationCoordinate2D(latitude: points[1].latitude, longitude: points[1].longitude)
             
@@ -186,12 +189,18 @@ class MapController: BaseMeasureMapController, MKMapViewDelegate {
             mapView.addOverlay(circle)
             break
         case .AREA:
+            if points.isEmpty {
+                return
+            }
             let coordinates = points.map { point in CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude) }
             let polygon = CMKPolygon(coordinates: coordinates, count: coordinates.count)
             polygon.measure = measure
             mapView.addOverlay(polygon)
             break
         case .DISTANCE:
+            if points.isEmpty {
+                return
+            }
             let coordinates = points.map { point in CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude) }
             let polyline = CMKPolyline(coordinates: coordinates, count: coordinates.count)
             polyline.measure = measure

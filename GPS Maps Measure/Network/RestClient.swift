@@ -11,7 +11,8 @@ import CocoaLumberjackSwift
 class RestClient {
     
     struct Auth {
-        static let STATIC_MAPS_API_KEY = "<YOUR_KEY>"
+//        static let STATIC_MAPS_API_KEY = "<YOUR_CUSTOMER_KEY>"
+        static let STATIC_MAPS_API_KEY = "AIzaSyBq4gNg9khqdwkOtbroAbfbA0hng7iCdpc"
     }
 
     enum Endpoints {

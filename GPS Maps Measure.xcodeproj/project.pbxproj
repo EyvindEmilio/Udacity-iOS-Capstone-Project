@@ -19,6 +19,7 @@
 		81C393DC2877B94000E58DB4 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C393DB2877B94000E58DB4 /* RestClient.swift */; };
 		81C393DE287800FE00E58DB4 /* UserPref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C393DD287800FE00E58DB4 /* UserPref.swift */; };
 		81C393E028780C7F00E58DB4 /* Overlay+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C393DF28780C7F00E58DB4 /* Overlay+Extensions.swift */; };
+		81C393E728782CAC00E58DB4 /* Turf in Frameworks */ = {isa = PBXBuildFile; productRef = 81C393E628782CAC00E58DB4 /* Turf */; };
 		81D172BA28767F67004C6F7B /* MeasureEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172B928767F67004C6F7B /* MeasureEditorController.swift */; };
 		81D172BC28767FCF004C6F7B /* GroupEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172BB28767FCF004C6F7B /* GroupEditorController.swift */; };
 		81D172BE2876AA25004C6F7B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172BD2876AA25004C6F7B /* DataController.swift */; };
@@ -33,7 +34,6 @@
 		81FD51162870B88000E5FD48 /* JsonPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51152870B88000E5FD48 /* JsonPoint.swift */; };
 		81FD51182870D78A00E5FD48 /* PointLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51172870D78A00E5FD48 /* PointLocation.swift */; };
 		81FD511A2870DD3700E5FD48 /* LatLngBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51192870DD3700E5FD48 /* LatLngBounds.swift */; };
-		81FD511D2870E16000E5FD48 /* GoogleMapsUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 81FD511C2870E16000E5FD48 /* GoogleMapsUtils */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,8 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81FD511D2870E16000E5FD48 /* GoogleMapsUtils in Frameworks */,
 				8111300D286AB4AD006799DE /* CocoaLumberjackSwift in Frameworks */,
+				81C393E728782CAC00E58DB4 /* Turf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +186,7 @@
 			name = "GPS Maps Measure";
 			packageProductDependencies = (
 				8111300C286AB4AD006799DE /* CocoaLumberjackSwift */,
-				81FD511C2870E16000E5FD48 /* GoogleMapsUtils */,
+				81C393E628782CAC00E58DB4 /* Turf */,
 			);
 			productName = "GPS Maps Measure";
 			productReference = 81112FF4286A6C1A006799DE /* GPS Maps Measure.app */;
@@ -218,7 +218,7 @@
 			mainGroup = 81112FEB286A6C1A006799DE;
 			packageReferences = (
 				8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
-				81FD511B2870E16000E5FD48 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */,
+				81C393E528782CAC00E58DB4 /* XCRemoteSwiftPackageReference "turf-swift" */,
 			);
 			productRefGroup = 81112FF5286A6C1A006799DE /* Products */;
 			projectDirPath = "";
@@ -496,12 +496,12 @@
 				version = 3.7.4;
 			};
 		};
-		81FD511B2870E16000E5FD48 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */ = {
+		81C393E528782CAC00E58DB4 /* XCRemoteSwiftPackageReference "turf-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/googlemaps/google-maps-ios-utils.git";
+			repositoryURL = "https://github.com/mapbox/turf-swift.git";
 			requirement = {
 				kind = exactVersion;
-				version = 4.1.0;
+				version = 2.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -512,10 +512,10 @@
 			package = 8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
 			productName = CocoaLumberjackSwift;
 		};
-		81FD511C2870E16000E5FD48 /* GoogleMapsUtils */ = {
+		81C393E628782CAC00E58DB4 /* Turf */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 81FD511B2870E16000E5FD48 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */;
-			productName = GoogleMapsUtils;
+			package = 81C393E528782CAC00E58DB4 /* XCRemoteSwiftPackageReference "turf-swift" */;
+			productName = Turf;
 		};
 /* End XCSwiftPackageProductDependency section */
 
