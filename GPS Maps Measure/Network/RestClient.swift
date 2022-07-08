@@ -12,7 +12,7 @@ class RestClient {
 
     struct Auth {
 //        static let STATIC_MAPS_API_KEY = "<YOUR_CUSTOMER_KEY>"
-        static let STATIC_MAPS_API_KEY = "AIzaSyBq4gNg9khqdwkOtbroAbfbA0hng7iCdpc"
+        static let STATIC_MAPS_API_KEY = "AIzaSyCAMS-q3d-74J1a6og37-vmQFY4OjAZQv4"
     }
 
     enum Endpoints {
