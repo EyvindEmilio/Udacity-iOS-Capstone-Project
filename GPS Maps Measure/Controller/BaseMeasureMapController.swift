@@ -21,6 +21,11 @@ class BaseMeasureMapController: UIViewController {
         setupFetchedGroupsController()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        try? fetchedGroupsController.performFetch()
+    }
+
     fileprivate func setupFetchedGroupsController() {
         let fetchRequest: NSFetchRequest<Group> = Group.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)

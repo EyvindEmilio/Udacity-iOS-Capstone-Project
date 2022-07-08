@@ -30,6 +30,16 @@ class MapController: BaseMeasureMapController, MKMapViewDelegate {
 
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onPointSelected(_:)))
         mapView.addGestureRecognizer(gestureRecognizer)
+        
+        if UserPref.createDefaultGroupIsNeeded() {
+            let group = Group(context: dataController.viewContext)
+            
+            group.name = "Default"
+            group.color = Int64(UIColor.blue.rgb()!)
+            group.updatedAt = Date()
+            
+            try? dataController.viewContext.save()
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
