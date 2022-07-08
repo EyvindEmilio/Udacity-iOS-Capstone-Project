@@ -11,9 +11,9 @@ import Foundation
 struct PointLocation {
     var latitude: Double = 0.0
     var longitude: Double = 0.0
-    
-    init(_ lat: Double,_ lon: Double){
-        self.latitude = lat
-        self.longitude = lon
+
+    init(_ lat: Double, _ lon: Double) {
+        latitude = lat
+        longitude = lon
     }
 }

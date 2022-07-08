@@ -10,11 +10,11 @@ import CocoaLumberjack
 
 public class CustomLogFormatter: NSObject, DDLogFormatter {
     
-    let dateFormmater = DateFormatter()
+    let dateFormatter = DateFormatter()
     
     public override init() {
         super.init()
-        dateFormmater.dateFormat = "yyyy/MM/dd HH:mm:ss:SSS"
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss:SSS"
     }
 
     public func format(message logMessage: DDLogMessage) -> String? {

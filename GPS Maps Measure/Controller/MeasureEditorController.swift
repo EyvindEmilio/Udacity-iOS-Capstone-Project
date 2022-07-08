@@ -45,10 +45,10 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
+        tabBarController?.tabBar.isHidden = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onPointSelected(_:)))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onPointSelected(_:)))
         mapView.addGestureRecognizer(gestureRecognizer)
         
         setupFetchedGroupsController()
@@ -66,7 +66,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
 
     @IBAction func removePin(_ sender: Any) {
         _ = list.popLast()
-        drawAnnotaions()
+        drawAnnotations()
         drawFigure()
         redrawDetail()
         btnDeletePoint.isEnabled = !list.isEmpty
@@ -77,9 +77,9 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
         groupSelected = measure?.group
         measure?.getLayLngPoints().forEach({ point in
             let annotation = generateAnnotation(point.latitude, point.longitude)
-            self.mapView.addAnnotation(annotation)
-            self.list.append(annotation)
-            self.selectedAnnotation = annotation
+            mapView.addAnnotation(annotation)
+            list.append(annotation)
+            selectedAnnotation = annotation
         })
         drawFigure()
         autoZoomToOverlay()
@@ -96,7 +96,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
         dataController.viewContext.rollback()
     }
     
@@ -138,7 +138,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
             var state: UIMenuElement.State = .off
             
             if canAutoSelect { // To look for the group
-                if group.id == self.groupSelected?.id {
+                if group.id == groupSelected?.id {
                     state = .on
                 }
             } else { // To set the first group
@@ -153,7 +153,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
             
             if !canAutoSelect {
                 if !isPrimarySet {
-                    self.groupSelected = group
+                    groupSelected = group
                 }
                 isPrimarySet = true
             }
@@ -164,10 +164,10 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
         
     }
     
-    @objc func onPointSelected(_ gestureReconizer: UITapGestureRecognizer) {
-        dump(gestureReconizer)
-        if gestureReconizer.state == .ended {
-            let location = gestureReconizer.location(in: mapView)
+    @objc func onPointSelected(_ gestureRecognizer: UITapGestureRecognizer) {
+        dump(gestureRecognizer)
+        if gestureRecognizer.state == .ended {
+            let location = gestureRecognizer.location(in: mapView)
             let coordinate = mapView.convert(location,toCoordinateFrom: mapView)
             
             handleNewPointSelected(coordinate)
@@ -180,7 +180,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
             let annotation = generateAnnotation(coordinate.latitude, coordinate.longitude)
             if list.count >= 2 { // remove the last
                 _ = list.popLast()
-                drawAnnotaions() // Needed for CIRCLE
+                drawAnnotations() // Needed for CIRCLE
             }
             addAnnotation(annotation)
             break
@@ -196,7 +196,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
             list.removeAll()
             let annotation = generateAnnotation(coordinate.latitude, coordinate.longitude)
             addAnnotation(annotation)
-            drawAnnotaions() // Needed for POI
+            drawAnnotations() // Needed for POI
             break
         case .none:
             break
@@ -282,7 +282,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
     }
     
     private func isNew() -> Bool {
-        return measure == nil
+        measure == nil
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -369,7 +369,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    private func drawAnnotaions() {
+    private func drawAnnotations() {
         mapView.removeAnnotations(mapView.annotations)
         mapView.addAnnotations(list)
     }

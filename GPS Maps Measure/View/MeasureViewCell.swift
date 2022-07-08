@@ -15,14 +15,13 @@ class MeasureViewCell: UITableViewCell {
     @IBOutlet weak var tvTitle: UILabel!
     @IBOutlet weak var tvDescription: UILabel!
     @IBOutlet weak var loadingIndicatpr: UIActivityIndicatorView!
-    
 
     func startLoading() {
         ivMap.contentMode = .scaleAspectFill
         loadingIndicatpr.startAnimating()
         loadingIndicatpr.isHidden = false
     }
-    
+
     func stopLoading() {
         loadingIndicatpr.stopAnimating()
         loadingIndicatpr.isHidden = true

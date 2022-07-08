@@ -12,10 +12,10 @@ class UserPref{
     private static let PREF_LAST_LONG = "PREF_LAST_LONG"
     private static let PREF_LAST_SPAN_LAT = "PREF_LAST_SPAN_LAT"
     private static let PREF_LAST_SPAN_LONG = "PREF_LAST_SPAN_LONG"
-    private static let PREF_IS_DEFEULT_GROUP_CREATED = "PREF_IS_DEFEULT_GROUP_CREATED"
+    private static let PREF_IS_DEFAULT_GROUP_CREATED = "PREF_IS_DEFAULT_GROUP_CREATED"
     
     static func getUserDef() -> UserDefaults {
-        return UserDefaults.standard
+        UserDefaults.standard
     }
     
     static func setLastLocation(_ lat: Double, _ long: Double){
@@ -51,8 +51,8 @@ class UserPref{
     }
     
     static func createDefaultGroupIsNeeded() -> Bool {
-        let flag = getUserDef().bool(forKey: PREF_IS_DEFEULT_GROUP_CREATED)
-        getUserDef().set(true, forKey: PREF_IS_DEFEULT_GROUP_CREATED)
+        let flag = getUserDef().bool(forKey: PREF_IS_DEFAULT_GROUP_CREATED)
+        getUserDef().set(true, forKey: PREF_IS_DEFAULT_GROUP_CREATED)
         return !flag
     }
 }

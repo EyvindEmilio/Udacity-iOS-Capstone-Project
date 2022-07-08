@@ -19,53 +19,56 @@ extension Measure {
                             type: MeasureType,
                             points: [PointLocation]) -> Measure {
         let measure = Measure(context: context)
-        
+
         measure.name = name
         measure.group = group
         measure.type = type.rawValue
-        
+
         measure.area = 0.0
         measure.perimeter = 0.0
         measure.distance = 0.0
         measure.radio = 0.0
-        
+
         measure.setPointsList(points: points)
-        
+
         measure.photo = nil
         measure.updatedAt = Date()
-        
+
         measure.regenerateCalcs()
-        
+
         return measure
     }
-    
+
     func getLayLngPoints() -> [PointLocation] {
         var list: [PointLocation] = []
-        
-        guard let simplePoints = self.simplePoints else {
+
+        guard let simplePoints = simplePoints else {
             return list
         }
 
         let pairPoints = simplePoints.split(separator: "|")
-        
+
         pairPoints.forEach { pairPoint in
             let latLng = pairPoint.split(separator: ",")
             let lat = Double(latLng[0]) ?? 0
             let lon = Double(latLng[1]) ?? 0
-            
+
             list.append(PointLocation(lat, lon))
         }
-        
+
         return list
     }
-    
-    func setPointsList(points: [PointLocation]){
-        self.simplePoints = points.map { point in "\(point.latitude),\(point.longitude)" }.joined(separator: "|")
+
+    func setPointsList(points: [PointLocation]) {
+        simplePoints = points.map { point in
+                    "\(point.latitude),\(point.longitude)"
+                }
+                .joined(separator: "|")
     }
-    
+
     func getMeasureType() -> MeasureType? {
         var measureType: MeasureType? = nil
-        switch self.type {
+        switch type {
         case MeasureType.AREA.rawValue:
             measureType = MeasureType.AREA
             break
@@ -85,13 +88,13 @@ extension Measure {
         }
         return measureType
     }
-    
+
     func regenerateCalcs() {
         area = 0.0
         perimeter = 0.0
         distance = 0.0
         radio = 0.0
-        
+
         switch getMeasureType() {
         case .AREA:
             regenerateForArea()
@@ -108,7 +111,7 @@ extension Measure {
             break
         }
     }
-    
+
     private func regenerateForCircle() {
         let points = getLayLngPoints()
         if points.count >= 2 {
@@ -117,7 +120,7 @@ extension Measure {
             let secondPointLocation = CLLocation(latitude: points[1].latitude, longitude: points[1].longitude)
             let locationDistance = centerLocation.distance(from: secondPointLocation)
             radio = locationDistance
-            
+
             // Area
             // Disabled temporally
             let ring = Turf.Ring(coordinates: points.map({ point in
@@ -133,14 +136,14 @@ extension Measure {
             radio = 0.0
         }
     }
-    
+
     private func regenerateForDistance() {
         let points = getLayLngPoints()
         if points.count >= 2 {
             var _distance = 0.0
-            
+
             var oldLocation = CLLocation(latitude: points[0].latitude, longitude: points[0].longitude)
-            
+
             for i in points.indices {
                 let nextLocation = CLLocation(latitude: points[i].latitude, longitude: points[i].longitude)
                 _distance += oldLocation.distance(from: nextLocation)
@@ -151,37 +154,37 @@ extension Measure {
             distance = 0.0
         }
     }
-    
+
     private func regenerateForArea() {
         let points = getLayLngPoints()
         if points.count >= 3 {
             var _perimeter = 0.0
-            
+
             // Perimeter
             var newPoints = points
             newPoints.append(points.first!)
-            
+
             var oldLocation = CLLocation(latitude: points[0].latitude, longitude: points[0].longitude)
-            
+
             for i in newPoints.indices {
                 let nextLocation = CLLocation(latitude: newPoints[i].latitude, longitude: newPoints[i].longitude)
                 _perimeter += oldLocation.distance(from: nextLocation)
                 oldLocation = nextLocation
             }
-            
+
             //area
             let pol = Turf.Polygon([points.map({ point in
                 LocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
             })])
-            self.area = pol.area
+            area = pol.area
             perimeter = _perimeter
-            
+
         } else {
             area = 0.0
             perimeter = 0.0
         }
     }
-    
+
 //    func area(){
 //        let points = getLayLngPoints()
 //        let pol = Turf.Polygon([points.map({ point in
@@ -190,8 +193,8 @@ extension Measure {
 //
 //        pol.area
 //    }
-    
-    
+
+
     func getDescription() -> String {
         var mDescription = ""
         switch getMeasureType() {
@@ -213,12 +216,12 @@ extension Measure {
         }
         return mDescription
     }
-    
-    private func roundValue(_ value: Double) -> String{
-        return String(format: "%.03f", value)
+
+    private func roundValue(_ value: Double) -> String {
+        String(format: "%.03f", value)
     }
 
     func needsFill() -> Bool {
-        return getMeasureType() == .AREA || getMeasureType() == .CIRCLE
+        getMeasureType() == .AREA || getMeasureType() == .CIRCLE
     }
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		81112FF8286A6C1A006799DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81112FF7286A6C1A006799DE /* AppDelegate.swift */; };
 		81112FFA286A6C1A006799DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81112FF9286A6C1A006799DE /* SceneDelegate.swift */; };
-		81112FFC286A6C1A006799DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81112FFB286A6C1A006799DE /* ViewController.swift */; };
 		81112FFF286A6C1A006799DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81112FFD286A6C1A006799DE /* Main.storyboard */; };
 		81113001286A6C1B006799DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81113000286A6C1B006799DE /* Assets.xcassets */; };
 		81113004286A6C1B006799DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81113002286A6C1B006799DE /* LaunchScreen.storyboard */; };
@@ -31,16 +30,13 @@
 		81FD510E2870AC5900E5FD48 /* GpsMaps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81FD510C2870AC5900E5FD48 /* GpsMaps.xcdatamodeld */; };
 		81FD51102870B0CE00E5FD48 /* Measure+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD510F2870B0CE00E5FD48 /* Measure+Extensions.swift */; };
 		81FD51142870B22E00E5FD48 /* MeasureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51132870B22E00E5FD48 /* MeasureType.swift */; };
-		81FD51162870B88000E5FD48 /* JsonPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51152870B88000E5FD48 /* JsonPoint.swift */; };
 		81FD51182870D78A00E5FD48 /* PointLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51172870D78A00E5FD48 /* PointLocation.swift */; };
-		81FD511A2870DD3700E5FD48 /* LatLngBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51192870DD3700E5FD48 /* LatLngBounds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		81112FF4286A6C1A006799DE /* GPS Maps Measure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPS Maps Measure.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81112FF7286A6C1A006799DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81112FF9286A6C1A006799DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		81112FFB286A6C1A006799DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		81112FFE286A6C1A006799DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81113000286A6C1B006799DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81113003286A6C1B006799DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,9 +57,7 @@
 		81FD510D2870AC5900E5FD48 /* GpsMaps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GpsMaps.xcdatamodel; sourceTree = "<group>"; };
 		81FD510F2870B0CE00E5FD48 /* Measure+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Measure+Extensions.swift"; sourceTree = "<group>"; };
 		81FD51132870B22E00E5FD48 /* MeasureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureType.swift; sourceTree = "<group>"; };
-		81FD51152870B88000E5FD48 /* JsonPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPoint.swift; sourceTree = "<group>"; };
 		81FD51172870D78A00E5FD48 /* PointLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointLocation.swift; sourceTree = "<group>"; };
-		81FD51192870DD3700E5FD48 /* LatLngBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLngBounds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +129,6 @@
 		81FD51052870ABEE00E5FD48 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				81112FFB286A6C1A006799DE /* ViewController.swift */,
 				81D172C42876D8C2004C6F7B /* BaseMeasureMapController.swift */,
 				8111300E286AB4CB006799DE /* MapController.swift */,
 				81FD510A2870AC1E00E5FD48 /* MeasureController.swift */,
@@ -152,9 +145,7 @@
 				81FD510C2870AC5900E5FD48 /* GpsMaps.xcdatamodeld */,
 				81FD510F2870B0CE00E5FD48 /* Measure+Extensions.swift */,
 				81FD51132870B22E00E5FD48 /* MeasureType.swift */,
-				81FD51152870B88000E5FD48 /* JsonPoint.swift */,
 				81FD51172870D78A00E5FD48 /* PointLocation.swift */,
-				81FD51192870DD3700E5FD48 /* LatLngBounds.swift */,
 				81D172BD2876AA25004C6F7B /* DataController.swift */,
 			);
 			path = Model;
@@ -217,8 +208,8 @@
 			);
 			mainGroup = 81112FEB286A6C1A006799DE;
 			packageReferences = (
-				8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
-				81C393E528782CAC00E58DB4 /* XCRemoteSwiftPackageReference "turf-swift" */,
+				8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack.git" */,
+				81C393E528782CAC00E58DB4 /* XCRemoteSwiftPackageReference "turf-swift.git" */,
 			);
 			productRefGroup = 81112FF5286A6C1A006799DE /* Products */;
 			projectDirPath = "";
@@ -249,9 +240,6 @@
 			files = (
 				8111300F286AB4CB006799DE /* MapController.swift in Sources */,
 				81FD51182870D78A00E5FD48 /* PointLocation.swift in Sources */,
-				81FD51162870B88000E5FD48 /* JsonPoint.swift in Sources */,
-				81112FFC286A6C1A006799DE /* ViewController.swift in Sources */,
-				81FD511A2870DD3700E5FD48 /* LatLngBounds.swift in Sources */,
 				81112FF8286A6C1A006799DE /* AppDelegate.swift in Sources */,
 				81FD51102870B0CE00E5FD48 /* Measure+Extensions.swift in Sources */,
 				81FD510B2870AC1E00E5FD48 /* MeasureController.swift in Sources */,
@@ -488,7 +476,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+		8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack.git";
 			requirement = {
@@ -496,7 +484,7 @@
 				version = 3.7.4;
 			};
 		};
-		81C393E528782CAC00E58DB4 /* XCRemoteSwiftPackageReference "turf-swift" */ = {
+		81C393E528782CAC00E58DB4 /* XCRemoteSwiftPackageReference "turf-swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/turf-swift.git";
 			requirement = {
@@ -509,12 +497,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		8111300C286AB4AD006799DE /* CocoaLumberjackSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			package = 8111300B286AB4AD006799DE /* XCRemoteSwiftPackageReference "CocoaLumberjack.git" */;
 			productName = CocoaLumberjackSwift;
 		};
 		81C393E628782CAC00E58DB4 /* Turf */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 81C393E528782CAC00E58DB4 /* XCRemoteSwiftPackageReference "turf-swift" */;
+			package = 81C393E528782CAC00E58DB4 /* XCRemoteSwiftPackageReference "turf-swift.git" */;
 			productName = Turf;
 		};
 /* End XCSwiftPackageProductDependency section */
