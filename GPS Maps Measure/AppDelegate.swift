@@ -25,6 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         dataController.load()
         
+        if UserPref.createDefaultGroupIsNeeded() {
+            let group = Group(context: dataController.viewContext)
+            group.name = "Default"
+            group.color = Int64(UIColor.blue.rgb()!)
+            try? dataController.viewContext.save()
+        }
+        
         return true
     }
 

@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import CoreLocation
+import MapKit
 
 extension UIColor {
     func rgb() -> Int? {
@@ -46,5 +48,27 @@ extension Int64 {
         let blue = CGFloat(self & 0x0000FF) / 0xFF
         
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+}
+
+extension Int64 {
+    func toRgbHexString() -> String {
+        return String(format: "%06X", Int(self) & 0xFFFFFF )
+    }
+}
+
+extension Array where Element == CLLocationCoordinate2D {
+    func toPointLocation() -> [PointLocation] {
+        return self.map { coordinate2d in
+            PointLocation(coordinate2d.latitude, coordinate2d.longitude)
+        }
+    }
+}
+
+extension Array where Element == MKPointAnnotation {
+    func toPointLocation() -> [PointLocation] {
+        return self.map { annotation in
+            PointLocation(annotation.coordinate.latitude , annotation.coordinate.longitude)
+        }
     }
 }

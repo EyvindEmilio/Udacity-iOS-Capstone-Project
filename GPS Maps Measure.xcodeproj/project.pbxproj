@@ -16,11 +16,15 @@
 		8111300D286AB4AD006799DE /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8111300C286AB4AD006799DE /* CocoaLumberjackSwift */; };
 		8111300F286AB4CB006799DE /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111300E286AB4CB006799DE /* MapController.swift */; };
 		8170C340286AC11600E3A316 /* CustomLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8170C33F286AC11600E3A316 /* CustomLogFormatter.swift */; };
+		81C393DC2877B94000E58DB4 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C393DB2877B94000E58DB4 /* RestClient.swift */; };
+		81C393DE287800FE00E58DB4 /* UserPref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C393DD287800FE00E58DB4 /* UserPref.swift */; };
+		81C393E028780C7F00E58DB4 /* Overlay+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C393DF28780C7F00E58DB4 /* Overlay+Extensions.swift */; };
 		81D172BA28767F67004C6F7B /* MeasureEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172B928767F67004C6F7B /* MeasureEditorController.swift */; };
 		81D172BC28767FCF004C6F7B /* GroupEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172BB28767FCF004C6F7B /* GroupEditorController.swift */; };
 		81D172BE2876AA25004C6F7B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172BD2876AA25004C6F7B /* DataController.swift */; };
 		81D172C32876B456004C6F7B /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172C22876B456004C6F7B /* GlobalExtensions.swift */; };
 		81D172C52876D8C2004C6F7B /* BaseMeasureMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172C42876D8C2004C6F7B /* BaseMeasureMapController.swift */; };
+		81D172C72877B197004C6F7B /* MeasureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D172C62877B197004C6F7B /* MeasureViewCell.swift */; };
 		81FD51092870AC1300E5FD48 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD51082870AC1300E5FD48 /* GroupController.swift */; };
 		81FD510B2870AC1E00E5FD48 /* MeasureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD510A2870AC1E00E5FD48 /* MeasureController.swift */; };
 		81FD510E2870AC5900E5FD48 /* GpsMaps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81FD510C2870AC5900E5FD48 /* GpsMaps.xcdatamodeld */; };
@@ -43,11 +47,15 @@
 		81113005286A6C1B006799DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8111300E286AB4CB006799DE /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		8170C33F286AC11600E3A316 /* CustomLogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLogFormatter.swift; sourceTree = "<group>"; };
+		81C393DB2877B94000E58DB4 /* RestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		81C393DD287800FE00E58DB4 /* UserPref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPref.swift; sourceTree = "<group>"; };
+		81C393DF28780C7F00E58DB4 /* Overlay+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Overlay+Extensions.swift"; sourceTree = "<group>"; };
 		81D172B928767F67004C6F7B /* MeasureEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureEditorController.swift; sourceTree = "<group>"; };
 		81D172BB28767FCF004C6F7B /* GroupEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEditorController.swift; sourceTree = "<group>"; };
 		81D172BD2876AA25004C6F7B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		81D172C22876B456004C6F7B /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
 		81D172C42876D8C2004C6F7B /* BaseMeasureMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMeasureMapController.swift; sourceTree = "<group>"; };
+		81D172C62877B197004C6F7B /* MeasureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureViewCell.swift; sourceTree = "<group>"; };
 		81FD51082870AC1300E5FD48 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
 		81FD510A2870AC1E00E5FD48 /* MeasureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureController.swift; sourceTree = "<group>"; };
 		81FD510D2870AC5900E5FD48 /* GpsMaps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GpsMaps.xcdatamodel; sourceTree = "<group>"; };
@@ -90,6 +98,7 @@
 		81112FF6286A6C1A006799DE /* GPS Maps Measure */ = {
 			isa = PBXGroup;
 			children = (
+				81C393DA2877B91D00E58DB4 /* Network */,
 				81D172C12876B444004C6F7B /* Instrumentation */,
 				81FD51072870AC0000E5FD48 /* View */,
 				81FD51062870ABF600E5FD48 /* Model */,
@@ -105,10 +114,20 @@
 			path = "GPS Maps Measure";
 			sourceTree = "<group>";
 		};
+		81C393DA2877B91D00E58DB4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				81C393DB2877B94000E58DB4 /* RestClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		81D172C12876B444004C6F7B /* Instrumentation */ = {
 			isa = PBXGroup;
 			children = (
 				81D172C22876B456004C6F7B /* GlobalExtensions.swift */,
+				81C393DD287800FE00E58DB4 /* UserPref.swift */,
+				81C393DF28780C7F00E58DB4 /* Overlay+Extensions.swift */,
 			);
 			path = Instrumentation;
 			sourceTree = "<group>";
@@ -144,6 +163,7 @@
 		81FD51072870AC0000E5FD48 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				81D172C62877B197004C6F7B /* MeasureViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,6 +255,10 @@
 				81112FF8286A6C1A006799DE /* AppDelegate.swift in Sources */,
 				81FD51102870B0CE00E5FD48 /* Measure+Extensions.swift in Sources */,
 				81FD510B2870AC1E00E5FD48 /* MeasureController.swift in Sources */,
+				81C393E028780C7F00E58DB4 /* Overlay+Extensions.swift in Sources */,
+				81C393DC2877B94000E58DB4 /* RestClient.swift in Sources */,
+				81C393DE287800FE00E58DB4 /* UserPref.swift in Sources */,
+				81D172C72877B197004C6F7B /* MeasureViewCell.swift in Sources */,
 				8170C340286AC11600E3A316 /* CustomLogFormatter.swift in Sources */,
 				81D172BA28767F67004C6F7B /* MeasureEditorController.swift in Sources */,
 				81112FFA286A6C1A006799DE /* SceneDelegate.swift in Sources */,

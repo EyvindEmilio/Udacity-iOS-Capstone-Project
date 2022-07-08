@@ -11,14 +11,11 @@ import CoreData
 import CocoaLumberjackSwift
 
 class MeasureController: BaseMeasureMapController, UITableViewDataSource, UITableViewDelegate {
-    
-    private let dataController = (UIApplication.shared.delegate as! AppDelegate).dataController
-    
+
     private var fetchedResultsController: NSFetchedResultsController<Measure>!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tvNoItemsFound: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +64,26 @@ class MeasureController: BaseMeasureMapController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let measure = fetchedResultsController.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MeasureCell", for: indexPath)
-        cell.textLabel?.text = measure.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: MeasureViewCell.IDENTIFIER, for: indexPath) as! MeasureViewCell
+
+        cell.tvTitle.text = measure.name
+        cell.tvDescription.text = measure.getDescription()
+        cell.startLoading()
+        RestClient.downloadMap(measure.simplePoints ?? "", needsFill: measure.needsFill(), color: measure.group!.color.toRgbHexString()) { data, error in
+            cell.stopLoading()
+
+            guard let data = data else {
+                let image = UIImage(named: "no_image")
+                cell.ivMap?.image = image
+                cell.setNeedsLayout()
+                
+                return
+            }
+            
+            let image = UIImage(data: data)
+            cell.ivMap?.image = image
+            cell.setNeedsLayout()
+        }
         
         return cell
     }

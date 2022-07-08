@@ -73,6 +73,7 @@ class GroupController: UIViewController, UITableViewDataSource, UITableViewDeleg
         let group = fetchedResultsController.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath)
         cell.textLabel?.text = group.name
+        cell.detailTextLabel?.text = "Measures: \(group.measures?.count ?? 0)"
         cell.imageView?.tintColor = group.color.uiColor()
         
         return cell

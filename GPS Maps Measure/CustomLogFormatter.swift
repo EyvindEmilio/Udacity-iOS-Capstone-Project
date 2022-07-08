@@ -33,17 +33,11 @@ public class CustomLogFormatter: NSObject, DDLogFormatter {
             logLevel = "V"
         }
         
-        let dt = dateFormmater.string(from: logMessage.timestamp)
         let logMsg = logMessage.message
         let lineNumber = logMessage.line
         let file = logMessage.fileName
-        let functionName = logMessage.function
-        let threadId = logMessage.threadID
 
-        
-        //return "\(dt) [\(threadId)] [\(logLevel)] [\(file):\(lineNumber)]\(functionName) - \(logMsg)"
-        
-        //return "[\(threadId)] [\(logLevel)] [\(file):\(lineNumber)]\(functionName ?? "") - \(logMsg)"
+        let threadId = logMessage.threadID
         return "[\(threadId)] [\(logLevel)] [\(file):\(lineNumber)] - \(logMsg)"
     }
     
