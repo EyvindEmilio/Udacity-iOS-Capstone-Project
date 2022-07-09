@@ -60,3 +60,9 @@
 ## Persistence
 - **UserDefaults** to save user preferences
 - **CoreData** to save data created using the application
+
+## Screenshots
+- Activity Indicators
+
+  <img src="Screenshots/map_indicator_loader.png" width="100px" title="Map indicator activity">
+  <img src="Screenshots/preview_indicator_loader.png" width="100px" title="Preview indicator activity">
