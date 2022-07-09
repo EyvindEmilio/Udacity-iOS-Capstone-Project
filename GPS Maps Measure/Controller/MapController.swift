@@ -16,6 +16,7 @@ class MapController: BaseMeasureMapController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tvMeasureInfo: UILabel!
     @IBOutlet weak var menuEdit: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     private var fetchedResultsController: NSFetchedResultsController<Measure>!
 
@@ -30,16 +31,18 @@ class MapController: BaseMeasureMapController, MKMapViewDelegate {
 
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onPointSelected(_:)))
         mapView.addGestureRecognizer(gestureRecognizer)
-        
+
         if UserPref.createDefaultGroupIsNeeded() {
             let group = Group(context: dataController.viewContext)
-            
+
             group.name = "Default"
             group.color = Int64(UIColor.blue.rgb()!)
             group.updatedAt = Date()
-            
+
             try? dataController.viewContext.save()
         }
+
+        hideLoader()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -178,6 +181,21 @@ class MapController: BaseMeasureMapController, MKMapViewDelegate {
         }
     }
 
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        DDLogVerbose("mapViewDidFinishLoadingMap()")
+        hideLoader()
+    }
+
+    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+        DDLogVerbose("mapViewWillStartLoadingMap()")
+        showLoader()
+    }
+
+    func mapViewDidFailLoadingMap(_ mapView: MKMapView, withError error: Error) {
+        DDLogVerbose("mapViewDidFailLoadingMap()")
+        showSingleAlert("Can't load map location")
+    }
+
     private func drawMeasure(_ measure: Measure) {
         let points = measure.getLayLngPoints()
 
@@ -235,6 +253,16 @@ class MapController: BaseMeasureMapController, MKMapViewDelegate {
         menuEdit.customView?.isHidden = false
         menuEdit.isEnabled = true
         tvMeasureInfo.text = "\(measure.name ?? "")\n\(measure.getDescription())"
+    }
+
+    private func showLoader() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+    }
+
+    private func hideLoader() {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
     }
 }
 

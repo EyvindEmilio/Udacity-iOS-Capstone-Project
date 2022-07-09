@@ -17,6 +17,9 @@ class MeasureController: BaseMeasureMapController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tvNoItemsFound: UILabel!
 
+    var alertCantLoadPreviewIsDisplayed = false
+    var alreadyDisplayedAlertPreview = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         DDLogVerbose("viewDidLoad()")
@@ -61,28 +64,47 @@ class MeasureController: BaseMeasureMapController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let measure = fetchedResultsController.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: MeasureViewCell.IDENTIFIER, for: indexPath) as! MeasureViewCell
 
         cell.tvTitle.text = measure.name
         cell.tvDescription.text = measure.getDescription()
-        cell.startLoading()
-        RestClient.downloadMap(measure.simplePoints ?? "", needsFill: measure.needsFill(), color: measure.group!.color.toRgbHexString()) { data, error in
-            cell.stopLoading()
+        
+        if cell.ivMap?.image == nil {
+            cell.startLoading()
+            RestClient.downloadMap(measure.simplePoints ?? "", needsFill: measure.needsFill(), color: measure.group!.color.toRgbHexString()) { [self] data, error in
+                cell.stopLoading()
 
-            guard let data = data else {
-                let image = UIImage(named: "no_image")
+                if error != nil {
+                    // To prevent call too many alerts and display again if a preview was loaded successfully
+                    if !alertCantLoadPreviewIsDisplayed && !alreadyDisplayedAlertPreview {
+                        let alertVC = UIAlertController(title: "Can't load map preview", message: "", preferredStyle: .alert)
+                    
+                        alertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                            self.alertCantLoadPreviewIsDisplayed = false
+                        }))
+                        alertCantLoadPreviewIsDisplayed = true
+                        alreadyDisplayedAlertPreview = true
+                        present(alertVC, animated: true)
+                    }
+                } else {
+                    alreadyDisplayedAlertPreview = false
+                }
+                
+                guard let data = data else {
+                    let image = UIImage(named: "no_image")
+                    cell.ivMap?.image = image
+                    cell.setNeedsLayout()
+
+                    return
+                }
+
+                let image = UIImage(data: data)
                 cell.ivMap?.image = image
                 cell.setNeedsLayout()
-
-                return
             }
-
-            let image = UIImage(data: data)
-            cell.ivMap?.image = image
-            cell.setNeedsLayout()
         }
 
         return cell
@@ -102,7 +124,6 @@ class MeasureController: BaseMeasureMapController, UITableViewDataSource, UITabl
     }
 
 }
-
 
 extension MeasureController: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {

@@ -37,6 +37,7 @@ class GroupEditorController: UIViewController, UIColorPickerViewControllerDelega
         tapGesture.numberOfTapsRequired = 1
         ivSelectColor.isUserInteractionEnabled = true
         ivSelectColor.addGestureRecognizer(tapGesture)
+        tfGroupName.delegate = self
 
         if isNewGroup() {
             populateDefault()
@@ -106,5 +107,12 @@ class GroupEditorController: UIViewController, UIColorPickerViewControllerDelega
 
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         ivSelectColor.backgroundColor = viewController.selectedColor
+    }
+}
+
+extension GroupEditorController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
     }
 }

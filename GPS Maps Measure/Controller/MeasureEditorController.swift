@@ -24,6 +24,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var tfMeasureName: UITextField!
     @IBOutlet weak var tvMeasureInfo: UILabel!
     @IBOutlet weak var btnDeletePoint: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var fetchedGroupsController: NSFetchedResultsController<Group>!
     private var list = [MKPointAnnotation]()
@@ -50,7 +51,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onPointSelected(_:)))
         mapView.addGestureRecognizer(gestureRecognizer)
-        
+        tfMeasureName.delegate = self
         setupFetchedGroupsController()
         tvMeasureInfo.text = ""
 
@@ -62,6 +63,7 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
         
         btnDeletePoint.isEnabled = !list.isEmpty
         loadLastPosition()
+        hideLoader()
     }
 
     @IBAction func removePin(_ sender: Any) {
@@ -380,5 +382,37 @@ class MeasureEditorController: UIViewController, MKMapViewDelegate {
         tempMeasure.regenerateCalcs()
         tvMeasureInfo.text = tempMeasure.getDescription()
         dataController.viewContext.rollback() // To prevent save the temporal measure
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        DDLogVerbose("mapViewDidFinishLoadingMap()")
+        hideLoader()
+    }
+    
+    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+        DDLogVerbose("mapViewWillStartLoadingMap()")
+        showLoader()
+    }
+
+    func mapViewDidFailLoadingMap(_ mapView: MKMapView, withError error: Error) {
+        DDLogVerbose("mapViewDidFailLoadingMap()")
+        showSingleAlert("Can't load map location")
+    }
+    
+    private func showLoader() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+    }
+    
+    private func hideLoader() {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+    }
+}
+
+extension MeasureEditorController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
     }
 }

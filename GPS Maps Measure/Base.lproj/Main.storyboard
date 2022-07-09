@@ -163,7 +163,7 @@ Perimeter: 34</string>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qtg-ow-rUC">
                                 <rect key="frame" x="133" y="296" width="261" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lok-ou-55u">
                                 <rect key="frame" x="20" y="302" width="97" height="21"/>
@@ -226,15 +226,21 @@ Perimeter: 34 m</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="bfZ-Pt-9Li">
+                                <rect key="frame" x="197" y="440.5" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PtO-Ya-czI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2dm-CH-Mi2" firstAttribute="leading" secondItem="PtO-Ya-czI" secondAttribute="leading" id="EUx-nG-35F"/>
                             <constraint firstItem="PtO-Ya-czI" firstAttribute="trailing" secondItem="2dm-CH-Mi2" secondAttribute="trailing" id="OrR-DA-YIa"/>
+                            <constraint firstItem="bfZ-Pt-9Li" firstAttribute="centerY" secondItem="PtO-Ya-czI" secondAttribute="centerY" id="WRf-Yb-c5E"/>
                             <constraint firstItem="gqL-yN-7KY" firstAttribute="leading" secondItem="PtO-Ya-czI" secondAttribute="leading" id="XLU-wH-TQ9"/>
                             <constraint firstItem="PtO-Ya-czI" firstAttribute="trailing" secondItem="gqL-yN-7KY" secondAttribute="trailing" id="fJ4-qH-jNY"/>
                             <constraint firstItem="PtO-Ya-czI" firstAttribute="bottom" secondItem="gqL-yN-7KY" secondAttribute="bottom" id="hIt-TQ-ZDg"/>
+                            <constraint firstItem="bfZ-Pt-9Li" firstAttribute="centerX" secondItem="PtO-Ya-czI" secondAttribute="centerX" id="qc5-aK-e03"/>
                             <constraint firstItem="2dm-CH-Mi2" firstAttribute="top" secondItem="PtO-Ya-czI" secondAttribute="top" id="wUN-83-2We"/>
                             <constraint firstItem="PtO-Ya-czI" firstAttribute="bottom" secondItem="2dm-CH-Mi2" secondAttribute="bottom" id="wx4-o1-yuQ"/>
                         </constraints>
@@ -255,6 +261,7 @@ Perimeter: 34 m</string>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="bfZ-Pt-9Li" id="DRv-1b-uMi"/>
                         <outlet property="mapView" destination="2dm-CH-Mi2" id="hin-0q-9Tj"/>
                         <outlet property="menuEdit" destination="1ls-v5-Iky" id="XXf-Tw-7b2"/>
                         <outlet property="tvMeasureInfo" destination="gqL-yN-7KY" id="McW-or-vMi"/>
@@ -263,7 +270,7 @@ Perimeter: 34 m</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGG-Rs-N4G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="397" y="-585"/>
+            <point key="canvasLocation" x="395.6521739130435" y="-585.26785714285711"/>
         </scene>
         <!--Map-->
         <scene sceneID="p44-Qm-6IJ">
@@ -300,7 +307,7 @@ Perimeter: 34 m</string>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Measure name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZT-Zy-kHZ">
                                 <rect key="frame" x="8" y="96" width="290" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YTE-nC-xlg">
                                 <rect key="frame" x="306" y="96" width="100" height="30"/>
@@ -320,6 +327,10 @@ Perimeter: 34 m</string>
                                     <action selector="removePin:" destination="DXT-Ou-I83" eventType="touchUpInside" id="HnW-PN-uLE"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="3VW-dS-SkG">
+                                <rect key="frame" x="197" y="440.5" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wk-cz-gxs">
                                 <rect key="frame" x="0.0" y="710" width="414" height="61"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -337,6 +348,7 @@ Perimeter: 34 m</string>
                             <constraint firstItem="vm0-mh-GbX" firstAttribute="trailing" secondItem="1Wk-cz-gxs" secondAttribute="trailing" id="1eX-bX-KGD"/>
                             <constraint firstItem="1Wk-cz-gxs" firstAttribute="leading" secondItem="vm0-mh-GbX" secondAttribute="leading" id="7Yx-G9-FPJ"/>
                             <constraint firstItem="Zsw-Yj-0wg" firstAttribute="top" secondItem="nZT-Zy-kHZ" secondAttribute="bottom" constant="8" id="9YA-BR-IK9"/>
+                            <constraint firstItem="3VW-dS-SkG" firstAttribute="centerY" secondItem="vm0-mh-GbX" secondAttribute="centerY" id="Dhd-i4-deG"/>
                             <constraint firstItem="vm0-mh-GbX" firstAttribute="trailing" secondItem="Xxu-Hn-S5G" secondAttribute="trailing" id="KbW-tp-VZI"/>
                             <constraint firstItem="Xxu-Hn-S5G" firstAttribute="top" secondItem="Zsw-Yj-0wg" secondAttribute="bottom" id="N5W-Ym-I0j"/>
                             <constraint firstItem="vm0-mh-GbX" firstAttribute="bottom" secondItem="Xxu-Hn-S5G" secondAttribute="bottom" id="Q6P-kO-9HQ"/>
@@ -345,6 +357,7 @@ Perimeter: 34 m</string>
                             <constraint firstItem="Zsw-Yj-0wg" firstAttribute="leading" secondItem="vm0-mh-GbX" secondAttribute="leading" id="VCd-xj-hlx"/>
                             <constraint firstItem="YTE-nC-xlg" firstAttribute="top" secondItem="vm0-mh-GbX" secondAttribute="top" constant="8" id="cG1-wh-PKC"/>
                             <constraint firstItem="vm0-mh-GbX" firstAttribute="trailing" secondItem="Zsw-Yj-0wg" secondAttribute="trailing" id="cxh-Cg-sze"/>
+                            <constraint firstItem="3VW-dS-SkG" firstAttribute="centerX" secondItem="vm0-mh-GbX" secondAttribute="centerX" id="dGg-jk-gnt"/>
                             <constraint firstItem="YTE-nC-xlg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vm0-mh-GbX" secondAttribute="leading" symbolic="YES" id="gxf-Vb-4hH"/>
                             <constraint firstItem="Xxu-Hn-S5G" firstAttribute="leading" secondItem="vm0-mh-GbX" secondAttribute="leading" id="lYv-HV-Yvg"/>
                             <constraint firstItem="nZT-Zy-kHZ" firstAttribute="top" secondItem="vm0-mh-GbX" secondAttribute="top" constant="8" id="mBB-xG-tMD"/>
@@ -354,6 +367,7 @@ Perimeter: 34 m</string>
                     </view>
                     <navigationItem key="navigationItem" id="oLi-GP-OKp"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="3VW-dS-SkG" id="RYh-8Q-xg8"/>
                         <outlet property="btnDeletePoint" destination="Xxu-Hn-S5G" id="lIG-oN-Q1u"/>
                         <outlet property="btnGroups" destination="YTE-nC-xlg" id="v9H-xV-AtB"/>
                         <outlet property="mapView" destination="Zsw-Yj-0wg" id="d87-sC-5Td"/>
